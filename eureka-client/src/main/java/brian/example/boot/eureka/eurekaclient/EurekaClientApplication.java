@@ -16,16 +16,8 @@ import java.util.List;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class EurekaClientApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(EurekaClientApplication.class, args);
-    }
-
-}
-
 @RestController
-class ServiceInstanceRestController {
+public class EurekaClientApplication {
 
     @Autowired
     private EurekaClient eurekaClient;
@@ -37,4 +29,9 @@ class ServiceInstanceRestController {
     public String serviceInstancesByApplicationName() {
         return String.format("Hello From %s", eurekaClient.getApplication(appName).getName());
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(EurekaClientApplication.class, args);
+    }
+
 }

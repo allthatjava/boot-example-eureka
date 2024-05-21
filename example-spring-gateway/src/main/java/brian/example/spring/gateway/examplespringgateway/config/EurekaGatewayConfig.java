@@ -17,7 +17,7 @@ public class EurekaGatewayConfig {
                 .route(r -> r.path("/greeting-failover")
                         .uri("lb://eureka-client-failover")
                         .id("eureka-client-failover"))
-                        .build();
+                .build();
     }
 
 }
