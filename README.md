@@ -9,7 +9,7 @@
 * `localhost:8080/get-greeting?name=brian` will access `eureka-feign-client` service
 * Then it will use `eureka-server` loadbalance address to get access to microservices `eureka-client`
 * Since Feign Client is used with loadbalancer feature by service name, API Gateway is not totally necessary
-* If you want to use API Gateway, uncommend the following `url` attribute on @FeignClient annotation
+* If you want to use API Gateway, uncomment the following `url` attribute on @FeignClient annotation
 
 ```java
 @FeignClient(value="eureka-client"
