@@ -17,6 +17,9 @@ public class EurekaGatewayConfig {
                 .route(r -> r.path("/greeting-failover")
                         .uri("lb://eureka-client-failover")
                         .id("eureka-client-failover"))
+//                .route(r -> r.path("/get-greeting")
+//                        .uri("lb://spring-cloud-eureka-feign-client")
+//                        .id("spring-cloud-eureka-feign-client"))
                 .build();
     }
 

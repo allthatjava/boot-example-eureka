@@ -8,8 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,8 +28,9 @@ public class EurekaClientApplication {
     private String appName;
 
     @GetMapping("/greeting")
-    public String serviceInstancesByApplicationName() {
-        return String.format("Hello From %s", eurekaClient.getApplication(appName).getName());
+    public String serviceInstancesByApplicationName(@Nullable @RequestParam String name) {
+
+        return String.format("Hello From %s name:%s", eurekaClient.getApplication(appName).getName(), name);
     }
 
     public static void main(String[] args) {
